@@ -1,0 +1,95 @@
+.main-content {
+  max-width: 600px;
+  width: 100%;
+  margin: 4em auto 0;
+  overflow: hidden;
+}
+
+.title {
+  background: #305457;
+  color: #fff;
+  padding: 30px 10px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.title span {
+  display: none;
+}
+.title span:nth-child(1) {
+  display: block;
+}
+
+.bingo-card {
+  background: #0f929b;
+  padding: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: repeat(5, minmax(110px, max-content));
+  grid-template-columns: repeat(5, minmax(50px, 1fr));
+  margin-bottom: 50px;
+}
+.bingo-card__item {
+  background: #305457;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.35;
+  -webkit-user-select: none;
+  user-select: none;
+  box-shadow: 3px 3px 2px #005c63;
+  color: white;
+}
+.bingo-card__item.active span {
+  z-index: 1000;
+}
+.bingo-card__item.bingoTile {
+  background: black;
+}
+
+.bingo-card__item.bingoTile::after {
+  background: radial-gradient(circle at 100px 100px, #d70909, #000000);
+}
+
+.bingo-card__item:after {
+  height: 97%;
+  width: 98%;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  background: radial-gradient(circle at 100px 100px, #0f929b, #000000);
+  top: 0;
+  left: 0;
+  content: "\274c";
+  font-size: 50px;
+  line-height: 100px;
+}
+.bingo-card__item.active:after {
+  opacity: 0.7;
+}
+
+.bingo-card__item {
+  padding: 15px;
+}
+
+.bingoed {
+  background: black;
+}
+.bingoed:after {
+  background: radial-gradient(circle at 100px 100px, #d70909, #000000);
+}
+@media screen and (max-width: 786px) {
+  .bingo-card {
+    grid-gap: 8px;
+  }
+  .bingo-card__item {
+    font-size: 10px;
+  }
+  .bingo-card__item:after {
+    font-size: 30px;
+  }
+}
